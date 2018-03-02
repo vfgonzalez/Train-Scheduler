@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Train Scheduler</title>
+
+    <!-- Bootstrap CDN -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+
+    <!-- Firebase -->
+   
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+
+
+</head>
+
+<body>
+
+<!-- Write your HTML here -->
+<!-- Main Header -->
+<div class="jumbotron jumbotron-fluid bg-secondary text-white">
+    <div class="container">
+      <h1 class="display-4">Train Scheduler</h1>
+      <p class="lead">Input a new Train Schedule to track the Next Arrival</p>
+    </div>
+  </div>
+  <!-- Train Data -->
+    <div class="card border-primary ">
+        <div class="card-header bg-primary text-white">
+            Current Train Schdule
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <div class="row" id="staticData">
+                    <div class="col-2">Train Name</div>
+                    <!-- leave below blank -->
+                    <div class="col-2"></div>
+                    <!-- leave above blank -->
+                    <div class="col-2">Destination</div>
+                    <div class="col-2">Frequency</div>
+                    <!-- next Arrival is an operator -->
+                    <div class="col-2">Next Arrival</div>
+                    <div class="col-2">Minutes Away</div>
+                </div>
+                <hr>
+                <div class="row" id="dynamicData">
+                    <div class="col-2" id="addTrain"></div>
+                    <div class="col-2" id="BLANK"></div>
+                    <div class="col-2" id="addDestination"></div>
+                    <div class="col-2" id="addFrequency"></div>
+                    <div class="col-2" id="addNext"></div>
+                    <div class="col-2" id="billFunc"></div>
+
+                </div>
+            </blockquote>
+        </div>
+    </div>
+
+<br>
+<br>
+  <!-- New Train schedule input -->
+
+<div class="card border-primary">
+    <div class="card-header bg-primary text-white">
+        Add Train
+    </div>
+    <div class="card-body">
+        <blockquote class="blockquote mb-0">
+            <form>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Train Name</label>
+                    <input type="text" class="form-control" id="name" >
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Destination</label>
+                    <input type="text" class="form-control" id="destination" >
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">First Train Time (HH:mm) - Military Time</label>
+                    <input type="text" class="form-control" id="time" >
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Frequency (min)</label>
+                    <input type="text" class="form-control" id="frequency" >
+                </div>
+                <input class="btn btn-primary" id="submit" type="submit" value="Submit">
+
+            </form>
+        </div>
+</div>
+
+   
+    
+    <!-- javascript CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+    <!-- Link local javascript file here -->
+    <script language="JavaScript" type="text/javascript" src="./js/logic.js"></script>
+
+</body>
+
+</html>
