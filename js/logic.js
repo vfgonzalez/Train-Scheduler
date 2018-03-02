@@ -13,10 +13,10 @@
 
   var database = firebase.database()
 
-var nameInput
-var roleInput
-var startInput
-var rateInput
+var trainInput
+var destinationInput
+var freqInput
+var timeInput
 var timestamp
 
 
@@ -24,11 +24,11 @@ var timestamp
 
 $("#submit").on("click", function (){
     event.preventDefault()
-    nameInput = $("#name").val()
-    console.log("name =" + nameInput)
-    roleInput = $("#role").val()
-    startInput = $("#startDate").val()
-    rateInput = $("#monthlyRate").val()
+    trainInput = $("#name").val()
+    console.log("name =" + trainInput)
+    destinationInput = $("#destination").val()
+    timeInput = $("#time").val()
+    freqInput = $("#frequency").val()
    
     
     database.ref().push({
@@ -38,42 +38,30 @@ $("#submit").on("click", function (){
     //     // name:$("#name").val().trim()
     //     // name:$("#name").val().trim()
 
-        name:nameInput,
-        role:roleInput,
-        start:startInput,
-        rate:rateInput,
-        timestamp:database.ServerValue.TIMESTAMP
+        name:trainInput,
+        destination:destinationInput,
+        time:timeInput,
+        frequency:freqInput,
+        timestamp:firebase.database.ServerValue.TIMESTAMP
 
     })
 
     
 })
 
-// database.ref().on("value", function(snapshot) {
-//     console.log("Database info:"+snapshot.val())
-//     console.log(snapshot.val())
+database.ref().on("value", function(snapshot) {
+    console.log("Database info:"+snapshot.val())
+    console.log(snapshot.val())
     
 
-// })
-
-database.ref().on('child_added', function(snap) {
-    var json = JSON.stringify(snap.val())
-    console.log(json)
-    var splitarray = json.split(',')
-    console.log(splitarray)
-    console.log(splitarray[1])
-    console.log(splitarray[0])
-    $("#addName").append("<div>"+splitarray[0]+"</div>")
-    $("#addRole").append("<div>"+splitarray[2]+"</div>")
-    $("#addDate").append("<div>"+splitarray[3]+"</div>")
-    $("#addRate").append("<div>"+splitarray[1]+"</div>")
-    
 })
 
-// database.ref().orderByChild('number').on('value', function(snapshot) {
-//     // console.log('hi')
-//     console.log(snapshot.val())
-// })
 
+database.ref().orderByChild("timestamp").on("child_added", function(snap) {
+    $("#addTrain").append("<div>"+snap.val().name+"</div>");
+    $("#addDestination").append("<div>"+snap.val().destination+"</div>");
+    $("#addFrequency").append("<div>"+snap.val().frequency+"min"+"</div>");
+
+  });
 
 
