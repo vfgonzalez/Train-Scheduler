@@ -15,6 +15,7 @@
     <!-- Firebase -->
    
     <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
 
 
 </head>
@@ -23,24 +24,24 @@
 
 <!-- Write your HTML here -->
 <!-- Main Header -->
-<div class="jumbotron jumbotron-fluid bg-secondary text-white">
+<div class="jumbotron jumbotron-fluid bg text-white">
     <div class="container">
       <h1 class="display-4">Train Scheduler</h1>
       <p class="lead">Input a new Train Schedule to track the Next Arrival</p>
     </div>
   </div>
   <!-- Train Data -->
-    <div class="card border-primary ">
-        <div class="card-header bg-primary text-white">
+    <div class="card border-secondary ">
+        <div class="card-header bg-dark text-white">
             Current Train Schdule
         </div>
-        <div class="card-body">
+        <div class="card-body" id="main-Schedule">
             <blockquote class="blockquote mb-0">
                 <div class="row" id="staticData">
-                    <div class="col-2">Train Name</div>
-                    <!-- leave below blank -->
-                    <div class="col-2"></div>
-                    <!-- leave above blank -->
+                    <div class="col-4">Train Name</div>
+                    
+                    <!-- <div class="col-2">First Departure</div> -->
+                    
                     <div class="col-2">Destination</div>
                     <div class="col-2">Frequency</div>
                     <!-- next Arrival is an operator -->
@@ -49,12 +50,12 @@
                 </div>
                 <hr>
                 <div class="row" id="dynamicData">
-                    <div class="col-2" id="addTrain"></div>
-                    <div class="col-2" id="BLANK"></div>
+                    <div class="col-4" id="addTrain"></div>
+                    <!-- <div class="col-2" id="firstTrain"></div> -->
                     <div class="col-2" id="addDestination"></div>
                     <div class="col-2" id="addFrequency"></div>
                     <div class="col-2" id="addNext"></div>
-                    <div class="col-2" id="andMinaway"></div>
+                    <div class="col-2" id="addMinaway"></div>
 
                 </div>
             </blockquote>
@@ -65,8 +66,8 @@
 <br>
   <!-- New Train schedule input -->
 
-<div class="card border-primary">
-    <div class="card-header bg-primary text-white">
+<div class="card border-warning">
+    <div class="card-header bg-dark text-white">
         Add Train
     </div>
     <div class="card-body">
@@ -88,7 +89,7 @@
                     <label for="formGroupExampleInput2">Frequency (min)</label>
                     <input  class="form-control" id="frequency" >
                 </div>
-                <input class="btn btn-primary" id="submit" type="submit" value="Submit">
+                <input class="btn btn-success" id="submit" type="submit" value="Submit">
 
             </form>
         </div>
@@ -102,8 +103,10 @@
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  
     <!-- MomentJS -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/locale/en-ie.js" integrity="sha256-loAPppabgYHaroAYhjX7FySh4PU3UDkr7d6m9ecprDI=" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.js" integrity="sha256-2/3+Q1kMYR8MDaqFPNBgmLgiqWJjySkg1wqLx/iE5Zo=" crossorigin="anonymous"></script>
+   
 
     <!-- Link local javascript file here -->
     <script language="JavaScript" type="text/javascript" src="./js/logic.js"></script>
