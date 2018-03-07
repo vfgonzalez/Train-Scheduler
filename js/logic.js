@@ -52,7 +52,7 @@ $("#submit").on("click", function (){
 
 // })
  
-// setInterval(function(){  
+function datafunc(){
    
 database.ref().orderByChild("timestamp").on("child_added", function(snap) {
     // var startTime = moment(snap.val().time, "hh:mm A")
@@ -98,5 +98,15 @@ database.ref().orderByChild("timestamp").on("child_added", function(snap) {
     $("#addNext").append("<div>"+nextTrain.format('hh:mm A')+"</div>")
 
   });
-  
-//  }, 10000,);
+}
+datafunc()
+  setInterval(function(){ 
+    $("#addTrain").empty();
+    $("#addDestination").empty();
+    $("#addFrequency").empty()
+    $("#addNext").empty()
+    $("#addMinaway").empty()
+    
+      datafunc()
+
+ }, 60000,)
